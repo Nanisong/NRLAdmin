@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="24fb924035bf47528847a64b66ac150c" Name="Diagram1" ZoomLevel="125">
+        <EntityTypeShape EntityType="NRLModel.Career" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NRLModel.Game" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NRLModel.Perform" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NRLModel.Player" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NRLModel.Team" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="NRLModel.FK_Careers_Players" ManuallyRouted="false" />
+        <AssociationConnector Association="NRLModel.FK_Careers_Teams" ManuallyRouted="false" />
+        <AssociationConnector Association="NRLModel.FK_Games_Teams" ManuallyRouted="false" />
+        <AssociationConnector Association="NRLModel.FK_Games_Teams1" ManuallyRouted="false" />
+        <AssociationConnector Association="NRLModel.FK_Performs_Teams" ManuallyRouted="false" />
+        <AssociationConnector Association="NRLModel.FK_Players_Teams" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
