@@ -15,31 +15,31 @@ namespace NRLAdmin.Controllers
         private NRLEntities db = new NRLEntities();
 
         // GET: Performs
-        public ActionResult Index()
+        public ActionResult Index(NRLAdmin.Models.Ladder modelLadder)
         {
-            var performs = db.Performs.Include(p => p.Team).OrderByDescending(p => p.Points);
-            return View(performs.ToList());
-        }
-
-        public ActionResult Ladder(NRLAdmin.Models.Ladder modelLadder)
-        {
-            //var performs = db.Performs.Include(p => p.Team);
-
-            //var performsLadder = db.Performs.GroupBy(p => p.TeamID).Select(g => new
-            // {
-            //     //PerformID = g.Max(pc => pc.PerformID).ToString(),
-            //     TeamID = g.Max(pc => pc.TeamID).ToString(),
-            //     Points = g.Sum(pc => pc.Points).ToString(),
-            //     Wins = g.Sum(pc => (Int32)(pc.Wins)).ToString(),
-            //     Draws = g.Sum(pc => (Int32)(pc.Draws)).ToString(),
-            //     Losts = g.Sum(pc => (Int32)(pc.Losts)).ToString()
-            // } ).AsEnumerable();
-
-            //return View(performsLadder.ToList());
-
             modelLadder.GetLadderInfo();
             return View(modelLadder);
+            //var performs = db.Performs.Include(p => p.Team).OrderByDescending(p => p.Points);
+            //return View(performs.ToList());
         }
+
+        //public ActionResult Ladder(NRLAdmin.Models.Ladder modelLadder)
+        //{
+        //    //var performs = db.Performs.Include(p => p.Team);
+        //    //var performsLadder = db.Performs.GroupBy(p => p.TeamID).Select(g => new
+        //    // {
+        //    //     //PerformID = g.Max(pc => pc.PerformID).ToString(),
+        //    //     TeamID = g.Max(pc => pc.TeamID).ToString(),
+        //    //     Points = g.Sum(pc => pc.Points).ToString(),
+        //    //     Wins = g.Sum(pc => (Int32)(pc.Wins)).ToString(),
+        //    //     Draws = g.Sum(pc => (Int32)(pc.Draws)).ToString(),
+        //    //     Losts = g.Sum(pc => (Int32)(pc.Losts)).ToString()
+        //    // } ).AsEnumerable();
+        //    //return View(performsLadder.ToList());
+
+        //    modelLadder.GetLadderInfo();
+        //    return View(modelLadder);
+        //}
 
         // GET: Performs/Details/5
         public ActionResult Details(string id)

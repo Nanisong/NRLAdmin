@@ -1,57 +1,51 @@
-﻿@model IEnumerable<NRLAdmin.Models.Perform>
+﻿@model NRLAdmin.Models.Ladder
+
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Ladder";
 }
 
-<h2>Index</h2>
+<h2>Ladder</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Team.TeamName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Points)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Wins)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Draws)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Losts)
-        </th>
-        <th></th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Team.TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Points)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wins)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Draws)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Losts)
+            </th>*@
+        <th>TeamName</th>
+        <th>Played</th>
+        <th>Points</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losts</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Team.TeamName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Points)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Wins)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Draws)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Losts)
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.PerformID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PerformID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PerformID })*@
-        </td>
-    </tr>
-}
+    @for (var i = 0; i < @Model.TeamNameList.Count; i++)
+    {
+        <tr>
+            <th>@Model.TeamNameList[i]</th>
+            <th>@Model.PlayedList[i]</th>
+            <th>@Model.PointsList[i]</th>
+            <th>@Model.WinsList[i]</th>
+            <th>@Model.DrawsList[i]</th>
+            <th>@Model.LostsList[i]</th>
+        </tr>
+    }
+
 
 </table>
