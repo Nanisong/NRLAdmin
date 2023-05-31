@@ -3,37 +3,34 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Welcome to NRL Admin. </h1>
+    <p class="lead">The essential app for NRL staff.</p>
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
 
-<div>
+@*<div>
     @Html.ActionLink("Ladder", "Index", "Performs")<br />
     @Html.ActionLink("Games", "Index", "Games")<br />
     @Html.ActionLink("Teams", "Index", "Teams")<br />
     @Html.ActionLink("Players", "Index", "Players")<br />
     @Html.ActionLink("Careers", "Index", "Careers")<br />
-</div>
+</div>*@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>@Html.ActionLink("Ladder", "Index", "Performs")</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            View the current standings and rankings of the teams in the league.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>@Html.ActionLink("Games", "Index", "Games")</h2>
+        <p>Manage the information and statistics of the players in the league.</p>
+        
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+        <h2>@Html.ActionLink("Players", "Index", "Players")</h2>
+        <p>Create, edit and delete the teams in the league.</p>
+       
 </div>
