@@ -15,6 +15,7 @@ namespace NRLAdmin.Models
     public partial class Game
     {
         public string GameID { get; set; }
+        //public Nullable<System.DateTime> GameDate { get; set; }
         public Nullable<System.DateTime> GameDate { get; set; }
         public Nullable<byte> GameWeek { get; set; }
         public string HomeTeamID { get; set; }

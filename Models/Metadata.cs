@@ -11,4 +11,9 @@ namespace NRLAdmin.Models
         [DisplayFormat(DataFormatString = "{0:d}")]
         public string DOB;
     }
+    public class GamesMetadata
+    {
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        public string GameDate;
+    }
 }

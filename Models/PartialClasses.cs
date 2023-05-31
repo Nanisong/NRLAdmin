@@ -6,8 +6,12 @@ using System.Web;
 
 namespace NRLAdmin.Models
 {
-    [MetadataType(typeof(PlayersMetadata))]
-    public partial class Player
-    {
-    }
+    //[MetadataType(typeof(PlayersMetadata))]
+    //public partial class Player
+    //{
+    //}
+    //[MetadataType(typeof(GamesMetadata))]
+    //public partial class Game
+    //{
+    //}
 }

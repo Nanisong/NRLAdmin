@@ -33,71 +33,73 @@ namespace NRLAdmin.Models
                     var cmd = conn.CreateCommand();
 
                     cmd.CommandText = @"SELECT 
-GT.HomeTeamID AS TeamID
-, GT.TeamName AS TeamName
-, SUM(GT.WPH + GT.WPA + GT.DPH + GT.DPA) AS POINTS
-, SUM(GT.WCH + GT.WCA) AS WINS
-, SUM(GT.WPH + GT.WPA) AS WINPOINTS
-, SUM(GT.DCH + GT.DCA) AS DRAWS
-, SUM(GT.DPH + GT.DPA) AS DRAWPOINS
-, SUM(GT.LCH + GT.LCA) AS LOSTS
-, SUM(GT.WCH + GT.WCA + GT.DCH + GT.DCA + GT.LCH + GT.LCA) AS PLAYED
-FROM 
-	(SELECT 
-	ISNULL(GWH.WINPOINT, 0) AS WPH
-	, GWH.HomeTeamID
-	, GWH.TeamName 
-	, ISNULL(GWA.WINPOINTAWAY,0) AS WPA
-	, ISNULL(GWH.WINCOUNTHOME, 0) AS WCH
-	, ISNULL(GWA.WINCOUNTAWAY, 0) AS WCA
-	, ISNULL(GDH.DRAWCOUNTHOME, 0) AS DCH
-	, ISNULL(GDH.DRAWPOINTHOME, 0) AS DPH
-	, ISNULL(GDA.DRAWCOUNTAWAY, 0) AS DCA
-	, ISNULL(GDA.DRAWPOINTAWAY, 0) AS DPA
-	, ISNULL(GLH.LOSTCOUNTHOME, 0) AS LCH
-	, ISNULL(GLA.LOSTCOUNTAWAY, 0) AS LCA
+							GT.HomeTeamID AS TeamID
+							, GT.TeamName AS TeamName
+							, SUM(GT.WPH + GT.WPA + GT.DPH + GT.DPA) AS POINTS
+							, SUM(GT.WCH + GT.WCA) AS WINS
+							, SUM(GT.WPH + GT.WPA) AS WINPOINTS
+							, SUM(GT.DCH + GT.DCA) AS DRAWS
+							, SUM(GT.DPH + GT.DPA) AS DRAWPOINS
+							, SUM(GT.LCH + GT.LCA) AS LOSTS
+							, SUM(GT.WCH + GT.WCA + GT.DCH + GT.DCA + GT.LCH + GT.LCA) AS PLAYED
+							FROM 
+								(SELECT 
+								ISNULL(GWH.WINPOINT, 0) AS WPH
+								, GWH.HomeTeamID
+								, GWH.TeamName 
+								, ISNULL(GWA.WINPOINTAWAY,0) AS WPA
+								, ISNULL(GWH.WINCOUNTHOME, 0) AS WCH
+								, ISNULL(GWA.WINCOUNTAWAY, 0) AS WCA
+								, ISNULL(GDH.DRAWCOUNTHOME, 0) AS DCH
+								, ISNULL(GDH.DRAWPOINTHOME, 0) AS DPH
+								, ISNULL(GDA.DRAWCOUNTAWAY, 0) AS DCA
+								, ISNULL(GDA.DRAWPOINTAWAY, 0) AS DPA
+								, ISNULL(GLH.LOSTCOUNTHOME, 0) AS LCH
+								, ISNULL(GLA.LOSTCOUNTAWAY, 0) AS LCA
 
-	FROM
-		(SELECT Teams.TeamID  AS HomeTeamID, Teams.TeamName AS TeamName, ISNULL(GTID.WINCOUNTHOME,0) AS WINCOUNTHOME, ISNULL(GTID.WINPOINT,0) AS WINPOINT  from Teams LEFT JOIN 
-			(SELECT 
-			HomeTeamID, COUNT(HomeTeamID) AS WINCOUNTHOME, COUNT(HomeTeamID)*2 AS WINPOINT 
-			FROM GAMES WHERE HomeTeamScore > AwayTeamScore GROUP BY HomeTeamID) 
-			AS GTID
-			ON GTID.HomeTeamID = Teams.TeamID) 
-		AS GWH
-	LEFT JOIN
-		(SELECT 
-		AwayTeamID, COUNT(AwayTeamID) AS WINCOUNTAWAY, COUNT(AwayTeamID)*2 AS WINPOINTAWAY
-		FROM GAMES WHERE AwayTeamScore > HomeTeamScore GROUP BY AwayTeamID
-		) AS GWA
-	ON GWH.HomeTeamID = GWA.AwayTeamID
-	LEFT JOIN
-		(SELECT 
-		HomeTeamID, COUNT(HomeTeamID) AS DRAWCOUNTHOME, COUNT(HomeTeamID)*1 AS DRAWPOINTHOME
-		FROM GAMES WHERE AwayTeamScore = HomeTeamScore GROUP BY HomeTeamID
-		) AS GDH
-	ON GWH.HomeTeamID = GDH.HomeTeamID
-	LEFT JOIN
-		(SELECT 
-		AwayTeamID, COUNT(AwayTeamID) AS DRAWCOUNTAWAY, COUNT(AwayTeamID)*1 AS DRAWPOINTAWAY
-		FROM GAMES WHERE AwayTeamScore = HomeTeamScore GROUP BY AwayTeamID
-		) AS GDA
-	ON GWH.HomeTeamID = GDA.AwayTeamID
-	LEFT JOIN
-		(SELECT 
-		HomeTeamID, COUNT(HomeTeamID) AS LOSTCOUNTHOME
-		FROM GAMES WHERE HomeTeamScore < AwayTeamScore GROUP BY HomeTeamID
-		) AS GLH
-	ON GWH.HomeTeamID = GLH.HomeTeamID
-	LEFT JOIN
-		(SELECT 
-		AwayTeamID, COUNT(AwayTeamID) AS LOSTCOUNTAWAY
-		FROM GAMES WHERE HomeTeamScore > AwayTeamScore GROUP BY AwayTeamID
-		) AS GLA
-	ON GWH.HomeTeamID = GLA.AwayTeamID
-	) AS GT
-GROUP BY GT.HomeTeamID, GT.TeamName
-ORDER BY POINTS DESC";
+								FROM
+									(SELECT Teams.TeamID  AS HomeTeamID, Teams.TeamName AS TeamName, ISNULL(GTID.WINCOUNTHOME,0) 
+										AS WINCOUNTHOME, ISNULL(GTID.WINPOINT,0) AS WINPOINT  from Teams 
+								LEFT JOIN 
+										(SELECT 
+										HomeTeamID, COUNT(HomeTeamID) AS WINCOUNTHOME, COUNT(HomeTeamID)*2 AS WINPOINT 
+										FROM GAMES WHERE HomeTeamScore > AwayTeamScore GROUP BY HomeTeamID) 
+										AS GTID
+										ON GTID.HomeTeamID = Teams.TeamID) 
+									AS GWH
+								LEFT JOIN
+									(SELECT 
+									AwayTeamID, COUNT(AwayTeamID) AS WINCOUNTAWAY, COUNT(AwayTeamID)*2 AS WINPOINTAWAY
+									FROM GAMES WHERE AwayTeamScore > HomeTeamScore GROUP BY AwayTeamID
+									) AS GWA
+								ON GWH.HomeTeamID = GWA.AwayTeamID
+								LEFT JOIN
+									(SELECT 
+									HomeTeamID, COUNT(HomeTeamID) AS DRAWCOUNTHOME, COUNT(HomeTeamID)*1 AS DRAWPOINTHOME
+									FROM GAMES WHERE AwayTeamScore = HomeTeamScore GROUP BY HomeTeamID
+									) AS GDH
+								ON GWH.HomeTeamID = GDH.HomeTeamID
+								LEFT JOIN
+									(SELECT 
+									AwayTeamID, COUNT(AwayTeamID) AS DRAWCOUNTAWAY, COUNT(AwayTeamID)*1 AS DRAWPOINTAWAY
+									FROM GAMES WHERE AwayTeamScore = HomeTeamScore GROUP BY AwayTeamID
+									) AS GDA
+								ON GWH.HomeTeamID = GDA.AwayTeamID
+								LEFT JOIN
+									(SELECT 
+									HomeTeamID, COUNT(HomeTeamID) AS LOSTCOUNTHOME
+									FROM GAMES WHERE HomeTeamScore < AwayTeamScore GROUP BY HomeTeamID
+									) AS GLH
+								ON GWH.HomeTeamID = GLH.HomeTeamID
+								LEFT JOIN
+									(SELECT 
+									AwayTeamID, COUNT(AwayTeamID) AS LOSTCOUNTAWAY
+									FROM GAMES WHERE HomeTeamScore > AwayTeamScore GROUP BY AwayTeamID
+									) AS GLA
+								ON GWH.HomeTeamID = GLA.AwayTeamID
+								) AS GT
+							GROUP BY GT.HomeTeamID, GT.TeamName
+							ORDER BY POINTS DESC";
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.HasRows)
