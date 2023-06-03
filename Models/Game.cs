@@ -9,14 +9,18 @@
 
 namespace NRLAdmin.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Game
     {
         public string GameID { get; set; }
         //public Nullable<System.DateTime> GameDate { get; set; }
-        public Nullable<System.DateTime> GameDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime GameDate { get; set; }
+        //public Nullable<System.DateTime> GameDate { get; set; }
         public Nullable<byte> GameWeek { get; set; }
         public string HomeTeamID { get; set; }
         public string AwayTeamID { get; set; }

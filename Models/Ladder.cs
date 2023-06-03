@@ -112,7 +112,6 @@ namespace NRLAdmin.Models
                             DrawsList.Add(string.Format("{0}", reader["DRAWS"]));
                             LostsList.Add(string.Format("{0}", reader["LOSTS"]));
                             PlayedList.Add(string.Format("{0}", reader["PLAYED"]));
-
                         }
                     }
                     conn.Close();
