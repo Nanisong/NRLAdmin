@@ -1,4 +1,5 @@
-#
+# Description
+NRL Admin simplifies league management through a C# ASP.NET MVC interface and SQL Server backend, featuring custom SQL queries for efficient data handling.
 
 ## Screenshots
 **Home**
