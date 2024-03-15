@@ -13,7 +13,7 @@ NRL Admin is a robust and intuitive web application designed for National Rugby 
 - **3NF Database Design:** Ensures efficient data storage and retrieval, minimising duplication and promoting consistency.
 - **Custom SQL Queries:** Tailored SQL queries provide powerful data manipulation capabilities for generating complex league standings.
 - **User-Friendly Interface:** A clean and navigable layout enhances the user experience, making league management tasks straightforward.
-- 
+  
 ## Screenshots
 **Home**
 ![image](https://github.com/Nanisong/NRLAdmin/assets/124329841/2df3cab7-6557-4f5d-8aa5-3f44246d33d1)
