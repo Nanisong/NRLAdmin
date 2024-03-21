@@ -6,7 +6,7 @@ NRL Admin is a robust and intuitive web application designed for National Rugby 
 - **Ladder System** 🥇🥈🥉: Utilises custom SQL queries to present an up-to-date ladder, displaying team standings based on game records.
 - **Game Management** 🏉: Schedule games, update results, and maintain a comprehensive record of past and upcoming matches.
 - **Team Management** ⛹️: Create, edit, and manage team details within the league.
-- **Player Profiles** 🦸: Keep track of player statistics and manage player information effectively.
+- **Player Profiles** 👤: Keep track of player statistics and manage player information effectively.
   
 ## Technical Highlights 💡
 
