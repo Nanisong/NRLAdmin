@@ -1,12 +1,12 @@
 # Description
 NRL Admin is a robust and intuitive web application designed for National Rugby League (NRL) staff to manage and oversee league operations efficiently. Built with C# using the ASP.NET MVC framework, this application offers a seamless user experience and integrates with a SQL Server database. The database design adheres to the third normal form (3NF) to ensure data integrity and reduce redundancy.
 
-## Key Features 🚀
+## Key Features 🏉
 
-- **Ladder System** 📊: Utilises custom SQL queries to present an up-to-date ladder, displaying team standings based on game records.
-- **Game Management** 📅: Schedule games, update results, and maintain a comprehensive record of past and upcoming matches.
-- **Team Management** 👤: Create, edit, and manage team details within the league.
-- **Player Profiles** 🏢: Keep track of player statistics and manage player information effectively.
+- **Ladder System** 🥇🥈🥉: Utilises custom SQL queries to present an up-to-date ladder, displaying team standings based on game records.
+- **Game Management** 🏈🏉🏈: Schedule games, update results, and maintain a comprehensive record of past and upcoming matches.
+- **Team Management** ⛹️⛹️‍♀️⛹️‍♂️: Create, edit, and manage team details within the league.
+- **Player Profiles** 🦸🦹🧛: Keep track of player statistics and manage player information effectively.
   
 ## Technical Highlights 💡
 
